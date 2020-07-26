@@ -1,11 +1,11 @@
 const express = require('express');
-const path = require("path");
-const cors = require('cors')
+const path = require('path');
+const cors = require('cors');
+const app = express();
 const port = 4005;
 const { getItems } = require('../database/query');
-const app = express();
 
-app.use(express.static(path.join(__dirname, "../client/dist")));
+app.use(express.static(path.join(__dirname, '../client/dist')));
 app.use(express.json());
 app.use(cors());
 //app.use(express.urlencoded({extended: true})); //Parse URL-encoded bodies
@@ -22,6 +22,6 @@ app.get('/api/items', (req, res) => {
 });
 
 
-app.listen(port, function() {
+app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
